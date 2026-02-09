@@ -3,6 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: radial-gradient(
+    circle at top,
+    #020b31,
+    #0f0f0f 60%
+  );
 }
 
 .card {

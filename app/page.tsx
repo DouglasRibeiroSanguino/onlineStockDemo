@@ -5,8 +5,16 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <div className={styles.card}>
-        <h1>Online Stock</h1>
-        <p>Gerencie seu estoque com simplicidade e controle total.</p>
+        <span className={styles.badge}>Online Stock</span>
+
+        <h1 className={styles.title}>
+          Controle total do seu <span>Estoque</span>
+        </h1>
+
+        <p className={styles.subtitle}>
+          Gerencie produtos, entradas e saídas com segurança, rapidez e uma
+          interface profissional.
+        </p>
 
         <div className={styles.actions}>
           <Link href="/login" className={styles.primary}>
