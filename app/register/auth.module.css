@@ -90,3 +90,21 @@
   color: var(--primary);
   text-decoration: none;
 }
+
+/* Back to Home */
+.back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+.back a {
+  font-size: 14px;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back a:hover {
+  color: #e5e7eb;
+}

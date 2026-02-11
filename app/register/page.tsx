@@ -2,6 +2,7 @@
 
 import styles from "./auth.module.css";
 import { registerAction } from "../actions/auth";
+import Link from "next/link";
 
 export default function RegisterPage() {
   return (
@@ -29,6 +30,10 @@ export default function RegisterPage() {
         <div className={styles.footer}>
           Já possui conta? <a href="/login">Entrar</a>
         </div>
+      </div>
+
+      <div className={styles.back}>
+        <Link href="/">← Voltar para Home</Link>
       </div>
     </main>
   );

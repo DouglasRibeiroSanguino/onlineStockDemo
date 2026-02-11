@@ -1,6 +1,14 @@
 import { createProduct, deleteProduct, getProducts } from "@/app/actions/products";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
+  const session = (await cookies()).get("session");
+
+  if (!session) {
+    redirect("/login");
+  }
+
   const products = await getProducts();
 
   return (
