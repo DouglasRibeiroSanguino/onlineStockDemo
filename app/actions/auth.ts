@@ -9,28 +9,27 @@ import { authSchema } from "../lib/validators/auth";
 /* =========================
    REGISTER
 ========================= */
-export async function registerAction(formData: FormData) {
-  // transforma FormData em objeto
-  const data = {
-    email: formData.get("email"),
-    password: formData.get("password"),
-  };
-
-  const parsed = authSchema.safeParse(data);
+export async function registerAction(
+  prevState: { error?: string },
+  formData: FormData
+) {
+  const parsed = authSchema.safeParse({
+    email: String(formData.get("email") ?? ""),
+    password: String(formData.get("password") ?? ""),
+  });
 
   if (!parsed.success) {
-    throw new Error(parsed.error.issues[0].message);
+    return { error: parsed.error.issues[0].message };
   }
 
   const { email, password } = parsed.data;
 
-  // verifica se usuário já existe
   const existing = await sql`
     SELECT id FROM users WHERE email = ${email}
   `;
 
   if (existing.length > 0) {
-    throw new Error("Credenciais inválidas");
+    return { error: "Não foi possível criar a conta, por favor tente novamente." };
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
