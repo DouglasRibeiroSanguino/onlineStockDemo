@@ -4,9 +4,14 @@ import styles from "./auth.module.css";
 import { registerAction } from "../actions/auth";
 import Link from "next/link";
 import { useState } from "react";
+import React from "react";
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const [state, formAction] = React.useActionState(registerAction, {
+    error: "",
+  });
 
   return (
     <main className={styles.container}>
@@ -19,9 +24,14 @@ export default function RegisterPage() {
       <div className={styles.card}>
         <h1 className={styles.title}>CREATE ACCOUNT</h1>
 
-        <form action={registerAction} className={styles.form}>
+        <form action={formAction} className={styles.form}>
           <div className={styles.field}>
-            <input type="email" required placeholder=" " />
+            <input
+              name="email"
+              type="email"
+              required
+              placeholder=" "
+            />
 
             <label>Email</label>
           </div>
@@ -57,6 +67,11 @@ export default function RegisterPage() {
               <li>One number</li>
             </ul>
           </div>
+
+          {/* Mensagem de erro */}
+          {state?.error && (
+            <p className={styles.error}>{state.error}</p>
+          )}
 
           <button className={styles.button}>CREATE ACCOUNT</button>
         </form>
