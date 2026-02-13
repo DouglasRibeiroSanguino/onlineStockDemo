@@ -46,14 +46,17 @@ export async function registerAction(formData: FormData) {
 /* =========================
    LOGIN
 ========================= */
-export async function loginAction(formData: FormData) {
+export async function loginAction(
+  prevState: { error?: string },
+  formData: FormData
+) {
   const parsed = authSchema.safeParse({
     email: String(formData.get("email") ?? ""),
     password: String(formData.get("password") ?? ""),
   });
 
   if (!parsed.success) {
-    throw new Error("Credenciais inválidas");
+    return { error: "Invalid email or password" };
   }
 
   const { email, password } = parsed.data;
@@ -63,12 +66,12 @@ export async function loginAction(formData: FormData) {
   `;
 
   if (users.length === 0) {
-    throw new Error("Credenciais inválidas");
+    return { error: "Invalid email or password" };
   }
 
   const isValid = await bcrypt.compare(password, users[0].password);
   if (!isValid) {
-    throw new Error("Credenciais inválidas");
+    return { error: "Invalid email or password" };
   }
 
   (await cookies()).set("session", email, {
