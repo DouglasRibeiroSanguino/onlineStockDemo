@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 Controle de Estoque — Full Stack (Online)
 
 🔗 Site em produção:
--> https://online-stock.vercel.app/
+-> https://online-stock-demo.vercel.app/
 
 Sistema de controle de estoque desenvolvido em Full Stack, com frontend e backend integrados em Next.js, utilizando Server Actions e banco de dados PostgreSQL (Neon), com deploy na Vercel.
 
