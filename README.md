@@ -75,7 +75,7 @@ Vercel
 
 💾 Persistência em banco PostgreSQL online
 
-⚡ Operações via Server Actions (sem API REST)
+- Operações via Server Actions (sem API REST)
 
 📁 Estrutura do Projeto
 Estoque Web/
@@ -117,7 +117,7 @@ npm run dev
 
 Acesse:
 
-👉 http://localhost:3000
+=> http://localhost:3000
 
 🗃️ Banco de Dados
 CREATE TABLE products (
@@ -139,14 +139,14 @@ Driver utilizado:
 
 - Busca e filtros
 
-📊 Dashboard
+- Dashboard
 
-🖼 Upload de imagens
+- Upload de imagens
 
-🔐 Autenticação
+- Autenticação
 
-👨‍💻 Autor
+- Autor
 
 Desenvolvido por Douglas R. S.
-📱 Google Play Developer:
+- Google Play Developer:
 https://play.google.com/store/apps/developer?id=Douglas+R.+S.+Developer
